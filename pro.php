@@ -1,3 +1,4 @@
 <?php 
-	echo "Archivo PRO.PHP";
+extract($_GET);
+	echo "El resultado es: ",$c1+$c2;
 ?>

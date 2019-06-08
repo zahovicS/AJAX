@@ -4,19 +4,32 @@
 	<title></title>
 </head>
 <body>
-
-	<button type="submit">Mostrar</button>
+	<input type="number" id="n1" placeholder="Ingrese un Numero" />
+	<input type="number" id="n2" placeholder="Ingrese un Numero" />
+	<button type="submit" id="show">sumar</button>
+	<div class="result" id="result"></div>
 	<script type="text/javascript">
 		//Acronimo javascrip asincrono y xml
-		let Ajax=new XMLHttpRequest();
-
-		Ajax.open("get","pro.php",true);
-
-		Ajax.onload=()=>{
-			console.log(Ajax);
-		}
-		Ajax.send();
-
+		let button=document.querySelector("#show");
+		let result=document.querySelector("#result");
+		let txtn1=document.querySelector("#n1");
+		let txtn2=document.querySelector("#n2");
+		button.addEventListener("click", ()=>{
+			let Ajax=new XMLHttpRequest();
+			Ajax.open("get","pro.php?c1="+txtn1.value+"&c2="+txtn2.value,true);
+			Ajax.onload=()=>{
+				if (Ajax.status==200) 
+				{
+					console.log("Lo hice bien");
+					result.textContent=Ajax.responseText;		
+				}
+				else{
+					console.log("Hubo un error en el proceso");
+				}
+			}
+			Ajax.send();
+		});
+		
 	</script>
 </body>
 </html>
