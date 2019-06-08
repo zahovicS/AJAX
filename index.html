@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<button type="submit">Mostrar</button>
+	<script type="text/javascript">
+		//Acronimo javascrip asincrono y xml
+		let Ajax=new XMLHttpRequest();
+
+		Ajax.open("get","pro.php",true);
+
+		Ajax.onload=()=>{
+			console.log(Ajax);
+		}
+		Ajax.send();
+
+	</script>
+</body>
+</html>
